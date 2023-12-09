@@ -20,11 +20,11 @@ with open("day4.txt") as my_input:
 
 times = [1] * len(amts)
 
+amts.reverse()
 for i in range(len(amts)):
     for j in range(amts[i]):
-        if (i+j < len(amts)):
-            times[i+j+1] += 1
+        times[i] += times[i-j-1]
 
 for k in times:
     sum += k
-print(sum * 2)
+print(sum)
